@@ -1,0 +1,60 @@
+<?php if($block->getData('select_slider')): 
+	$slider = $block->getSelectedSlider();
+	$slides = json_decode($slider['slides'], true);
+?>
+	<div class="widget block-ricky-sliderowl">
+		<div class="block block-ricky-slider-wrapper">
+			<?php if($slider['isTitleVisible']): ?>
+				<div class="block-title">
+					<strong role="heading">
+						<?php echo $slider['title']; ?>
+					</strong>
+				</div>
+			<?php endif; ?>
+			<div class="block-content">
+			
+				<div class="owl-carousel owl-theme">
+				<?php 
+					foreach($slides as $slide) :
+						echo "<div class='item'>";
+							echo $block->processContent($slide);
+						echo "</div>";
+					endforeach;
+				?>		
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+
+		requirejs([
+			'jquery',
+       		'rickySliderowl'
+        	], function (jQuery) {
+            'use strict';
+			jQuery.noConflict();
+			
+			//console.log(<?php echo ($slider['autoplay'])?'true':'false'; ?>);
+                jQuery(".owl-carousel").owlCarousel({
+					stagePadding: 0,
+
+					items: <?php echo $slider['items']; ?>,
+					margin: <?php echo $slider['margin']; ?>,
+					loop: <?php  echo ($slider['loop'])?'true':'false'; ?>,
+					nav: <?php  echo ($slider['nav'])?'true':'false'; ?>,
+					<?php if(!empty($slider['navText'])): ?>
+						navText: <?php  echo json_encode($slider['navText']); ?>,
+					<?php endif; ?>	
+					dots: <?php  echo ($slider['dots'])?'true':'false'; ?>,
+					autoplay: <?php  echo ($slider['autoplay'])?'true':'false'; ?>,
+					<?php if(!empty($slider['autoplayTimeout'])): ?>
+						autoplayTimeout: <?php echo $slider['autoplayTimeout']; ?>,
+					<?php endif; ?>	
+					
+					animateOut: <?php echo json_encode($slider['animateOut']); ?>,
+					animateIn: <?php echo json_encode($slider['animateIn']); ?>,
+                
+          });
+		});
+		</script>
+	</div>		
+<?php endif; ?>

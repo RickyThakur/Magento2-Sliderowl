@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/** 
+ * @package   Ricky_Sliderowl
+ * @author    Ricky Thakur (Kapil Dev Singh)
+ * @copyright Copyright (c) 2018 Ricky Thakur
+ * @license   MIT license (see LICENSE.txt for details)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Ricky\Sliderowl\Block\Widget\Sliderowl" id="ricky_sliderowl_sliders">
+        <label>Ricky Owl Slider</label>
+        <description>Slider Widget</description>
+        <parameters>
+            <parameter name="ricky_sliderowl" sort_order="10" visible="true" xsi:type="text">
+                <label>Custom Posts Label</label>
+            </parameter>
+
+            <parameter name="select_slider" xsi:type="select" visible="true" source_model="Ricky\Sliderowl\Model\Widget\SliderList">
+                <label translate="true">Select a slider </label>
+            </parameter>
+            
+        </parameters>
+    </widget>
+</widgets>

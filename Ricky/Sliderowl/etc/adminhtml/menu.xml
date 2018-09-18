@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/** 
+ * @package   Ricky_Sliderowl
+ * @author    Ricky Thakur (Kapil Dev Singh)
+ * @copyright Copyright (c) 2018 Ricky Thakur
+ * @license   MIT license (see LICENSE.txt for details)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add 
+        id="Ricky_Sliderowl::menu_1" 
+        title="Ricky Owl Slider" 
+        module="Ricky_Sliderowl" 
+        sortOrder="10" 
+        resource="Ricky_Sliderowl::menu" />
+        
+        <add 
+        id="Ricky_Sliderowl::menu_1_1" 
+        title="Manage Slider" 
+        module="Ricky_Sliderowl" 
+        sortOrder="20" 
+        parent="Ricky_Sliderowl::menu_1" 
+        action="sliderowl/manager" 
+        resource="Ricky_Sliderowl::menu"/>
+        <add 
+        id="Ricky_Sliderowl::menu_1_2" 
+        title="test" 
+        module="Ricky_Sliderowl" 
+        sortOrder="30" 
+        parent="Ricky_Sliderowl::menu_1" 
+        action="sliderowl/test/test" 
+        resource="Ricky_Sliderowl::menu"/>
+    </menu>
+</config>
